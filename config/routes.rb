@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  root 'homes#top'
-
-  devise_for :customers
-  devise_for :admins
-  devise_for :customers, controllers: {
+ devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
   registrations: 'customers/registrations'
@@ -15,6 +11,7 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
  }
 
+  root 'homes#top'
   get '/about',to: 'homes#about'
   get '/search', to: 'searches#search'
 
@@ -52,4 +49,4 @@ Rails.application.routes.draw do
 
     resources :addresses, except: [:show, :new]
 
-    end
+end
